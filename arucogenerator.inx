@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<inkscape-extension xmlns="http://www.inkscape.org/namespace/inkscape/extension">
+	<_name>Aruco Generator</_name>
+	<id>com.bradgoodman.inkex.arucogenertor</id>
+
+	<hbox>
+		<vbox>
+			<label>Dimensions</label>
+			<param name="unit" _gui-text="    Units" type="optiongroup" appearance="combo">
+				<option value="in">in</option>
+				<option value="mm">mm</option>
+				<option value="cm">cm</option>
+			</param>
+
+			<param name="height" type="float" precision="3" min="0.0" max="10000.0" _gui-text="    Height">3</param>
+			<param name="width" type="float" precision="3"  min="0.0" max="10000.0" _gui-text="    Width">4</param>
+
+			<spacer/>
+			<separator/>
+			<label>Layout</label>
+			<param name="cols" type="float" precision="0" min="0" max="1000" _gui-text="    Columns">3</param>
+			<param name="rows" type="float" precision="0"  min="0" max="1000" _gui-text="    Rows">4</param>
+			<param name="hspace" type="float" precision="3" min="0.0" max="10000.0" _gui-text="    Horiz Offset">3</param>
+			<param name="vspace" type="float" precision="3"  min="0.0" max="10000.0" _gui-text="    Vert Offset">4</param>
+		</vbox>
+		<spacer/>
+		<separator/>
+		<spacer/>
+		<vbox>
+			<label>Labels</label>
+			<param name="startcode" type="float" precision="0"  min="0" max="1000" _gui-text="Start Code">4</param>
+			<param name="labels" type="string" gui-text="Labels" appearance="multiline"></param>
+			<param name="fontsize" type="float" precision="2"  min="0.0" max="1000.0" _gui-text="  Font Size">0</param>
+
+			<spacer/>
+			<label>Code</label>
+			<separator/>
+
+			<param name="code" _gui-text="    Code" type="optiongroup" appearance="combo">
+				<option value="aruco">aruco</option>
+				<option value="4x4_1000">4x4_1000</option>
+				<option value="5x5_1000">4x4_1000</option>
+				<option value="6x6_1000">5x5_1000</option>
+				<option value="7x7_1000">6x6_1000</option>
+			</param>
+
+		</vbox>
+	</hbox> 
+	<effect>
+		<object-type>all</object-type>
+		<effects-menu>
+			<submenu _name="Render" />
+		</effects-menu>
+	</effect>
+	<script>
+		<command location="inx" interpreter="python">arucogenerator.py</command>
+	</script>
+</inkscape-extension>
